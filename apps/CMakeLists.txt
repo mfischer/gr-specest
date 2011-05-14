@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-#
 # Copyright 2011 Communications Engineering Lab, KIT
 #
 # This file is part of the GNU Radio Spectral Estimation Toolbox
@@ -19,17 +17,5 @@
 # the Free Software Foundation, Inc., 51 Franklin Street,
 # Boston, MA 02110-1301, USA.
 
-import sys
-import subprocess
-import argparse
-
-def main():
-    parser = argparse.ArgumentParser(description='Start our unittests')
-    parser.add_argument('--path', help = 'sets the PYTHONPATH for the test')
-    parser.add_argument('--test', help = 'sets the filename containing the tests to run')
-    args = parser.parse_args()
-    python_path = {"PYTHONPATH" : args.path}
-    return subprocess.call(args=args.test, env=python_path)
-
-if __name__ == '__main__':
-    main()
+FILE(GLOB PYTHON_APPS *.py)
+INSTALL(FILES ${PYTHON_APPS} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
