@@ -9,12 +9,14 @@ In order to sucessfully build the gr-specest modules you will need:
 
 After checking out the code from the repository, change to the gr-specest
 directory. If you want to build with a different compiler such as clang
-you might have to do something like before:
+you might have to do something like:
 
 export CXX=clang++
 export CC=clang
 
-Create a new directory e.g. to do an out of source build:
+before.
+
+Create a new directory e.g. 'build' to do an out of source build:
 
 mkdir build
 cd build
@@ -31,7 +33,7 @@ Howto add your own blocks to the GNU Radio Spectral Estimation Toolbox:
 * Your swig stuff goes into swig/
 
 Adding a new C++ file that does not depend on Armadillo:
------------------------------------------------------
+--------------------------------------------------------
 * As stated above, C++ code goes into src/
 * Your QA code goes into qa_specest_yourblockname.{h,cc}
   respectively qa_specesti_yourblockname.{h,cc} if it is an
@@ -48,7 +50,7 @@ Adding a new C++ file that does depend on Armadillo:
 * For now, don't do it, as we're trying to get rid of the dependency sooner or later
 
 Adding a new Fortran file:
------------------------------------------------------
+--------------------------
 * As stated above, Fortran code goes into src/
 * Up to now we're wrapping the fortran code into specesti_ implementation blocks
   so we don't have unittests to directly test the fortran code
@@ -67,7 +69,7 @@ Adding a new Python file:
 
 Swig integration:
 -----------------
-This works basically the same as with the same autotools based build system
+This works basically the same as with the autotools based build system
 * Drop your *.i files into swig/ directory
 * include them into the specest.i as it has been with the others
 
