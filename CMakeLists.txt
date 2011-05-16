@@ -18,16 +18,8 @@
 # Boston, MA 02110-1301, USA.
 
 PROJECT(GR-SPECEST)
-
-
-MESSAGE("\n=============================================================================================")
-MESSAGE("GNU Radio Spectral Estimation Toolbox")
-MESSAGE("Copyright 2009-2011 Communications Engineering Lab, KIT\n")
-MESSAGE("This program comes with ABSOLUTELY NO WARRANTY.")
-MESSAGE("This is free software, and you are welcome to redistribute it under certain conditions.")
-MESSAGE("For further information see COPYING")
-MESSAGE("=============================================================================================\n")
-
+ENABLE_LANGUAGE(Fortran)
+ENABLE_LANGUAGE(CXX)
 
 CMAKE_MINIMUM_REQUIRED(VERSION 2.8)
 
@@ -67,5 +59,13 @@ CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/src/config.h.in ${CMAKE_BINARY_DIR}/src/confi
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/gnuradio-specest.pc.in ${CMAKE_BINARY_DIR}/gnuradio-specest.pc @ONLY)
 
 ENABLE_TESTING()
+
+MESSAGE("\n=============================================================================================")
+MESSAGE("GNU Radio Spectral Estimation Toolbox")
+MESSAGE("Copyright 2009-2011 Communications Engineering Lab, KIT\n")
+MESSAGE("This program comes with ABSOLUTELY NO WARRANTY.")
+MESSAGE("This is free software, and you are welcome to redistribute it under certain conditions.")
+MESSAGE("For further information see COPYING")
+MESSAGE("=============================================================================================\n")
 
 INSTALL(FILES ${CMAKE_BINARY_DIR}/gnuradio-specest.pc DESTINATION ${CMAKE_INSTALL_PREFIX}/lib${LIB_POSTFIX}/pkgconfig)

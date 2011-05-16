@@ -47,10 +47,10 @@ ADD_TEST(${testcase}_py
 	${CMAKE_CURRENT_SOURCE_DIR}/test_runner.py --test ${CMAKE_CURRENT_SOURCE_DIR}/qa_${testcase}.py --path ${CMAKE_BINARY_DIR}/swig)
 ENDFOREACH(testcase ${PYTHON_QA})
 
-IF(ARMADIOLLO_FOUND)
+IF(ARMADILLO_FOUND)
 	ADD_TEST(py_specest_music
 		${CMAKE_CURRENT_SOURCE_DIR}/test_runner.py --test ${CMAKE_CURRENT_SOURCE_DIR}/qa_specest_music.py --path ${CMAKE_BINARY_DIR}/swig)
-ENDIF(ARMADIOLLO_FOUND)
+ENDIF(ARMADILLO_FOUND)
 
 
 ################################################################################
