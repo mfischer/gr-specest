@@ -49,13 +49,13 @@ PKG_CHECK_MODULES(GNURADIO_CORE REQUIRED gnuradio-core)
 PKG_CHECK_MODULES(GNURADIO_UHD REQUIRED gnuradio-uhd)
 
 INCLUDE_DIRECTORIES(${GNURADIO_CORE_INCLUDE_DIRS})
-INCLUDE_DIRECTORIES(SYSTEM ${CMAKE_SOURCE_DIR}/src ${CMAKE_BINARY_DIR}/src)
+INCLUDE_DIRECTORIES(SYSTEM ${CMAKE_SOURCE_DIR}/lib ${CMAKE_BINARY_DIR}/lib)
 
-SUBDIRS(src swig python grc apps doc)
+SUBDIRS(lib swig python grc apps doc)
 
 #TODO generate the specest.i out of source
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/swig/specest.i.in ${CMAKE_SOURCE_DIR}/swig/specest.i)
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/src/config.h.in ${CMAKE_BINARY_DIR}/src/config.h)
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/lib/config.h.in ${CMAKE_BINARY_DIR}/lib/config.h)
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/gnuradio-specest.pc.in ${CMAKE_BINARY_DIR}/gnuradio-specest.pc @ONLY)
 
 ENABLE_TESTING()
