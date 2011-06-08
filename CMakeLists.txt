@@ -54,7 +54,7 @@ INCLUDE_DIRECTORIES(SYSTEM ${CMAKE_SOURCE_DIR}/lib ${CMAKE_BINARY_DIR}/lib)
 SUBDIRS(lib swig python grc apps doc)
 
 #TODO generate the specest.i out of source
-CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/swig/specest.i.in ${CMAKE_SOURCE_DIR}/swig/specest.i)
+CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/swig/specest.i.in ${CMAKE_BINARY_DIR}/swig/specest.i)
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/lib/config.h.in ${CMAKE_BINARY_DIR}/lib/config.h)
 CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/gnuradio-specest.pc.in ${CMAKE_BINARY_DIR}/gnuradio-specest.pc @ONLY)
 

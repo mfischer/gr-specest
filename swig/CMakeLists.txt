@@ -43,6 +43,8 @@ SET(SWIG_FLAGS_INCLUDE_DIRS
     ${GNURADIO_CORE_INCLUDE_DIRS}/gnuradio/swig
     ${Boost_INCLUDE_DIRS}
     ${UHD_INCLUDE_DIRS}
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${CMAKE_BINARY_DIR}/swig
 )
 
 SET(CMAKE_SWIG_FLAGS -fvirtual -modern -keyword -w511 -module specest_swig)
@@ -51,9 +53,10 @@ FOREACH(swig_include_dir ${SWIG_FLAGS_INCLUDE_DIRS})
     LIST(APPEND CMAKE_SWIG_FLAGS "-I${swig_include_dir}")
 ENDFOREACH(swig_include_dir)
 
-SET_SOURCE_FILES_PROPERTIES(specest.i PROPERTIES CPLUSPLUS ON)
+SET_SOURCE_FILES_PROPERTIES(${CMAKE_BINARY_DIR}/swig/specest.i PROPERTIES CPLUSPLUS ON)
 
-SWIG_ADD_MODULE(specest_swig python specest.i)
+#TODO Find out how to do this without ${CMAKE_BINARY_DIR}
+SWIG_ADD_MODULE(specest_swig python ${CMAKE_BINARY_DIR}/swig/specest.i)
 SWIG_LINK_LIBRARIES(specest_swig gnuradio-specest ${GNURADIO_CORE_LIBRARIES} ${PYTHON_LIBRARIES})
 
 
@@ -64,4 +67,7 @@ INSTALL(TARGETS ${SWIG_MODULE_specest_swig_REAL_NAME}
 )
 
 INSTALL(FILES ${CMAKE_BINARY_DIR}/swig/specest_swig.py DESTINATION ${PYTHON_DIR}/specest)
+FILE(GLOB DOT_I_FILES ${CMAKE_CURRENT_SOURCE_DIR}/*.i)
+INSTALL(FILES ${DOT_I_FILES} DESTINATION ${CMAKE_INSTALL_PREFIX}/include/specest/swig)
+INSTALL(FILES ${CMAKE_BINARY_DIR}/swig/specest.i DESTINATION ${CMAKE_INSTALL_PREFIX}/include/specest/swig)
 ENDIF(SWIG_FOUND)
