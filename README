@@ -28,20 +28,20 @@ For more information refer to the cmake documentation.
 
 Howto add your own blocks to the GNU Radio Spectral Estimation Toolbox:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* Your C++ or Fortran code goes into src/
+* Your C++ or Fortran code goes into lib/
 * Your Python code and your Python unittests go into python/
 * Your swig stuff goes into swig/
 
 Adding a new C++ file that does not depend on Armadillo:
 --------------------------------------------------------
-* As stated above, C++ code goes into src/
+* As stated above, C++ code goes into lib/
 * Your QA code goes into qa_specest_yourblockname.{h,cc}
   respectively qa_specesti_yourblockname.{h,cc} if it is an
   implementation block
 * Your code for the actual block goes (usually) into
   specest_yourblock.{h,cc}
 * To include your files in the buildsystem add them to the file
-  src/CMakeLists.txt by editing the following variables:
+  lib/CMakeLists.txt by editing the following variables:
     * CXX_SRCS (Sourcecode)
     * CXX_QA_SRCS and CXX_QA (QA source and names of tests (i.e. your class name))
 
@@ -51,12 +51,12 @@ Adding a new C++ file that does depend on Armadillo:
 
 Adding a new Fortran file:
 --------------------------
-* As stated above, Fortran code goes into src/
+* As stated above, Fortran code goes into lib/
 * Up to now we're wrapping the fortran code into specesti_ implementation blocks
   so we don't have unittests to directly test the fortran code
 * Your code goes into specesti_{c,z,f,d}yourblock.f90
 * To include your files in the buildsystem add them to the file
-  src/CMakeLists.txt by editing the following variables:
+  lib/CMakeLists.txt by editing the following variables:
     * F_SRCS (Sourcecode)
 
 Adding a new Python file:
