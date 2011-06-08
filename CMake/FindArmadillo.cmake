@@ -42,35 +42,35 @@ find_path(ARMADILLO_INCLUDE_DIR
 	)
 
 
-if(ARMADILLO_INCLUDE_DIR)
+#if(ARMADILLO_INCLUDE_DIR)
 
-	# ------------------------------------------------------------------------
-	#  Extract version information from <armadillo>
-	# ------------------------------------------------------------------------
+	## ------------------------------------------------------------------------
+	##  Extract version information from <armadillo>
+	## ------------------------------------------------------------------------
 
-	# WARNING: Early releases of Armadillo didn't have the arma_version.hpp file.
-	# (e.g. v.0.9.8-1 in ubuntu maverick packages (2001-03-15))
-	# If the file is missing, set all values to 0  
-	set(ARMADILLO_VERSION_MAJOR 0)
-	set(ARMADILLO_VERSION_MINOR 0)
-	set(ARMADILLO_VERSION_PATCH 0)
-	set(ARMADILLO_VERSION_NAME "EARLY RELEASE")
+	## WARNING: Early releases of Armadillo didn't have the arma_version.hpp file.
+	## (e.g. v.0.9.8-1 in ubuntu maverick packages (2001-03-15))
+	## If the file is missing, set all values to 0  
+	#set(ARMADILLO_VERSION_MAJOR 0)
+	#set(ARMADILLO_VERSION_MINOR 0)
+	#set(ARMADILLO_VERSION_PATCH 0)
+	#set(ARMADILLO_VERSION_NAME "EARLY RELEASE")
 
-	if(EXISTS "${ARMADILLO_INCLUDE_DIR}/armadillo_bits/arma_version.hpp")
+	#if(EXISTS "${ARMADILLO_INCLUDE_DIR}/armadillo_bits/arma_version.hpp")
 
-		# Read and parse armdillo version header file for version number 
-		file(READ "${ARMADILLO_INCLUDE_DIR}/armadillo_bits/arma_version.hpp" _armadillo_HEADER_CONTENTS)
-		string(REGEX REPLACE ".*#define ARMA_VERSION_MAJOR ([0-9]+).*" "\\1" ARMADILLO_VERSION_MAJOR "${_armadillo_HEADER_CONTENTS}")
-		string(REGEX REPLACE ".*#define ARMA_VERSION_MINOR ([0-9]+).*" "\\1" ARMADILLO_VERSION_MINOR "${_armadillo_HEADER_CONTENTS}")
-		string(REGEX REPLACE ".*#define ARMA_VERSION_PATCH ([0-9]+).*" "\\1" ARMADILLO_VERSION_PATCH "${_armadillo_HEADER_CONTENTS}")
+		## Read and parse armdillo version header file for version number 
+		#file(READ "${ARMADILLO_INCLUDE_DIR}/armadillo_bits/arma_version.hpp" _armadillo_HEADER_CONTENTS)
+		#string(REGEX REPLACE ".*#define ARMA_VERSION_MAJOR ([0-9]+).*" "\\1" ARMADILLO_VERSION_MAJOR "${_armadillo_HEADER_CONTENTS}")
+		#string(REGEX REPLACE ".*#define ARMA_VERSION_MINOR ([0-9]+).*" "\\1" ARMADILLO_VERSION_MINOR "${_armadillo_HEADER_CONTENTS}")
+		#string(REGEX REPLACE ".*#define ARMA_VERSION_PATCH ([0-9]+).*" "\\1" ARMADILLO_VERSION_PATCH "${_armadillo_HEADER_CONTENTS}")
 
-		# WARNING: The number of spaces before the version name is not one.
-		string(REGEX REPLACE ".*#define ARMA_VERSION_NAME\ +\"([0-9a-zA-Z\ _-]+)\".*" "\\1" ARMADILLO_VERSION_NAME "${_armadillo_HEADER_CONTENTS}")
+		## WARNING: The number of spaces before the version name is not one.
+		#string(REGEX REPLACE ".*#define ARMA_VERSION_NAME\ +\"([0-9a-zA-Z\ _-]+)\".*" "\\1" ARMADILLO_VERSION_NAME "${_armadillo_HEADER_CONTENTS}")
 
-	endif(EXISTS "${ARMADILLO_INCLUDE_DIR}/armadillo_bits/arma_version.hpp")
+	#endif(EXISTS "${ARMADILLO_INCLUDE_DIR}/armadillo_bits/arma_version.hpp")
 
-	set(ARMADILLO_VERSION_STRING "${ARMADILLO_VERSION_MAJOR}.${ARMADILLO_VERSION_MINOR}.${ARMADILLO_VERSION_PATCH}")
-endif (ARMADILLO_INCLUDE_DIR)
+	#set(ARMADILLO_VERSION_STRING "${ARMADILLO_VERSION_MAJOR}.${ARMADILLO_VERSION_MINOR}.${ARMADILLO_VERSION_PATCH}")
+#endif (ARMADILLO_INCLUDE_DIR)
 
 #======================
 
